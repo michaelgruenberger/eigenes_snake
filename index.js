@@ -27,7 +27,7 @@ createGrid();
 
 // draw snake
 snake.forEach(index => squares[index].classList.add("snake"));
-
+squares[snake[0]].classList.add("snake-head-right");
 
 // ------------------FUNCTIONS-----------------------
 
@@ -38,6 +38,9 @@ function startGame() {
         // set gamestate to 1 = running
         gamestate = 1;
 
+        // create focus on gameboard
+        grid.classList.add("focus");
+
         // set timer for movement
         timerId = setInterval(move, intervalTime);
 
@@ -47,19 +50,21 @@ function startGame() {
 }
 
 function resetGame() {
-    // stop movement
+    // stop movement + remove focus
     clearInterval(timerId);
+    grid.classList.remove("focus");
 
     // reset gamestate
     gamestate = 0;
 
     // removing snake + apple
-    snake.forEach(index => squares[index].classList.remove("snake"));
+    snake.forEach(index => squares[index].classList.remove("snake", "snake-head-right", "snake-head-left", "snake-head-up", "snake-head-down"));
     squares[appleIndex].classList.remove("apple");
 
     // setting up snake to original position
     snake = [2,1,0];
     snake.forEach(index => squares[index].classList.add("snake"));
+    squares[snake[0]].classList.add("snake-head-right");
 
     // resetting direction
     direction = 1;
@@ -157,7 +162,20 @@ function move() {
     }
 
     // adding style to new snake square
-    squares[snake[0]].classList.add("snake");
+    if (direction === 1) {
+        snake.forEach(index => squares[index].classList.remove("snake-head-right", "snake-head-left", "snake-head-up", "snake-head-down"));
+        squares[snake[0]].classList.add("snake", "snake-head-right");
+    } else if (direction === -1) {
+        snake.forEach(index => squares[index].classList.remove("snake-head-right", "snake-head-left", "snake-head-up", "snake-head-down"));
+        squares[snake[0]].classList.add("snake", "snake-head-left");
+    } else if (direction === -width) {
+        snake.forEach(index => squares[index].classList.remove("snake-head-right", "snake-head-left", "snake-head-up", "snake-head-down"));
+        squares[snake[0]].classList.add("snake", "snake-head-up");
+    } else if (direction === +width) {
+        snake.forEach(index => squares[index].classList.remove("snake-head-right", "snake-head-left", "snake-head-up", "snake-head-down"));
+        squares[snake[0]].classList.add("snake", "snake-head-down");
+    }
+    
 }
 
 // changing snake direction

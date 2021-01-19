@@ -86,9 +86,37 @@ h2 {
     background-color: lightgoldenrodyellow;
 }
 
+.focus {
+    box-shadow: 5px 5px 10px grey, -5px -5px 10px grey;
+}
+
 /* snake */
 .snake {
     background-color: rgb(94, 205, 50);
+}
+
+.snake-head-right,
+.snake-tail-left {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.snake-head-left,
+.snake-tail-right {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.snake-head-up,
+.snake-tail-down {
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.snake-head-down,
+.snake-tail-up {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
 /* apple */
