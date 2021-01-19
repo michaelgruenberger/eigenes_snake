@@ -1,0 +1,99 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(223, 223, 223);
+}
+
+h1 {
+    width: 100%;
+    padding: 20px auto;
+    font-size: 34px;
+    border-bottom: solid green 3px;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.wrapper {
+    padding-bottom: 10px;
+    max-width: 500px;
+    max-height: auto;
+    text-align: center;
+    border: solid black 5px;
+    border-radius: 25px;
+    margin: 20px auto;
+    background-color: rgb(238, 238, 222);
+}
+
+/* buttons */
+
+#start-btn,
+#start-btn:not(hover),
+#start-btn:not(focus),
+#reset-btn,
+#reset-btn:not(hover),
+#reset-btn:not(focus) {
+    font-weight: bold;
+    border: unset;
+    border-radius: 25px;
+    background-color: green;
+    color: goldenrod;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#start-btn:hover,
+#start-btn:focus,
+#reset-btn:hover,
+#reset-btn:focus {
+    background-color: goldenrod;
+    color: green;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+#start-btn:active,
+#reset-btn:active {
+    background-color: black;
+}
+
+#start-btn {
+    padding: 12px 30px;
+    font-size: 20px;
+}
+
+#reset-btn {
+    padding: 4px 10px;
+}
+
+/* gameboard */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 400px;
+    height: 400px;
+    border: solid green 3px;
+}
+
+.square {
+    width: 20px;
+    height: 20px;
+    background-color: lightgoldenrodyellow;
+}
+
+/* snake */
+.snake {
+    background-color: rgb(94, 205, 50);
+}
+
+/* apple */
+.apple {
+    background-color: red;
+    border: unset;
+    border-radius: 50%;
+}
